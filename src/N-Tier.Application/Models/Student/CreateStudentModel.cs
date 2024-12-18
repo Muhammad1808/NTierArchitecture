@@ -4,7 +4,9 @@ namespace N_Tier.Application.Models.Student;
 
 public  class CreateStudentModel
 {
-    public virtual PersonResponseModel Person { get; set; }
+    public virtual CreatePersonModel Person { get; set; }
+    public Guid ParentId { get; set; }
+    public Guid GroupId { get; set; }
 }
 
 public class CreateStudentResponseModel : BaseResponseModel { }

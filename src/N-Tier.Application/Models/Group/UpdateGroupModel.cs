@@ -2,7 +2,6 @@
 
 public class UpdateGroupModel
 {
-    public Guid StudentId { get; set; }
     public string Name { get; set; }
 }
 

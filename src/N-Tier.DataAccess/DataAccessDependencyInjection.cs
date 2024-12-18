@@ -37,6 +37,16 @@ public static class DataAccessDependencyInjection
         services.AddScoped<IRoomRepository, RoomRepository>();
         services.AddScoped<IStudentRepository, StudentRepository>();
         services.AddScoped<ISubjectRepository, SubjectRepository>();
+        services.AddScoped<IAboutSchoolRepository, AboutSchoolRepository>();
+        services.AddScoped<IAchievementRepository,AchievementRepository>();
+        services.AddScoped<IAdminStaffRepository, AdminStaffRepository>();
+        services.AddScoped<IAttendanceRepository, AttendanceRepository>();
+        services.AddScoped<ICourseRepository, CourseRepository>();
+        services.AddScoped<IDepartmentRepository, DepartmentRepository>();
+        services.AddScoped<IDormitoryRepository,DormitoryRepository>();
+        services.AddScoped<IParentRepository, ParentRepository>();
+        services.AddScoped<ISchudeleRepository, SchudeleRepository>();
+        services.AddScoped<ITransportRepository, TransportRepository>();
     }
 
     private static void AddDatabase(this IServiceCollection services, IConfiguration configuration)

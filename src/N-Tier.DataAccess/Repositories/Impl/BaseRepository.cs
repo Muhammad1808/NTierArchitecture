@@ -61,4 +61,16 @@ public class BaseRepository<TEntity> : IBaseRepository<TEntity> where TEntity : 
 
         return entity;
     }
+
+    public async Task<List<TEntity>> GetAllAsyncPerson(Expression<Func<TEntity, bool>> predicate, Func<IQueryable<TEntity>, IQueryable<TEntity>> include = null)
+    {
+        var query = DbSet.AsQueryable();
+
+        if (include != null)
+        {
+            query = include(query); 
+        }
+
+        return await query.Where(predicate).ToListAsync();
+    }
 }

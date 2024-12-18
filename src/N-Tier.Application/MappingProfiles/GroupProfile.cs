@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using N_Tier.Application.Models.Group;
+using N_Tier.Core.Entities;
 
-namespace N_Tier.Application.MappingProfiles
+namespace N_Tier.Application.MappingProfiles;
+
+public class GroupProfile:Profile
 {
-    internal class GroupProfile
+    public GroupProfile()
     {
+        CreateMap<CreateGroupModel, Group>();
+        CreateMap<UpdateGroupModel, Group>();
+        CreateMap<Group,GroupResponseModel>();
     }
 }

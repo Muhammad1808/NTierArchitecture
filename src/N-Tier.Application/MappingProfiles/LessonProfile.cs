@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using N_Tier.Application.Models.Lesson;
+using N_Tier.Core.Entities;
 
-namespace N_Tier.Application.MappingProfiles
+namespace N_Tier.Application.MappingProfiles;
+
+public class LessonProfile:Profile
 {
-    internal class LessonProfile
+    public LessonProfile()
     {
+        CreateMap<CreateLessonModel, Lesson>();
+        CreateMap<UpdateLessonModel, Lesson>();
+        CreateMap<Lesson,LessonResponseModel>();
     }
 }

@@ -33,6 +33,25 @@ public static class ApplicationDependencyInjection
         services.AddScoped<IUserService, UserService>();
         services.AddScoped<IClaimService, ClaimService>();
         services.AddScoped<ITemplateService, TemplateService>();
+        services.AddScoped<IAboutSchoolService, AboutSchoolService>();
+        services.AddScoped<IAchievementService, AchievementService>();
+        services.AddScoped<IAdminStaffService, AdminStaffService>();
+        services.AddScoped<IAttendanceService, AttendanceService>();
+        services.AddScoped<ICourseService, CourseService>();
+        services.AddScoped<IDepartmentService, DepartmentService>();
+        services.AddScoped<IDiaryService, DiaryService>();
+        services.AddScoped<IDormitoryService,DormitoryService>();
+        services.AddScoped<IEmployeeService, EmployeeService>();
+        services.AddScoped<IEventService, EventService>();
+        services.AddScoped<IExamService, ExamService>();
+        services.AddScoped<IGroupService, GroupService>();
+        services.AddScoped<ILessonService, LessonService>();
+        services.AddScoped<IParentService, ParentService>();
+        services.AddScoped<IRoomService, RoomService>();
+        services.AddScoped<ISchudeleService, ScheduleService>();
+        services.AddScoped<IStudentService, StudentService>();
+        services.AddScoped<ISubjectService,SubjectService>();
+        services.AddScoped<ITransportService, TransportService>();
 
         if (env.IsDevelopment())
             services.AddScoped<IEmailService, DevEmailService>();

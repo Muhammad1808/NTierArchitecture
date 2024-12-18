@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using N_Tier.Application.Models.Room;
+using N_Tier.Core.Entities;
 
-namespace N_Tier.Application.MappingProfiles
+namespace N_Tier.Application.MappingProfiles;
+
+public class RoomProfile:Profile
 {
-    internal class RoomProfile
+    public RoomProfile()
     {
+        CreateMap<CreateRoomModel, Room>();
+        CreateMap<UpdateRoomModel, Room>();
+        CreateMap<Room, RoomResponseModel>();
     }
 }

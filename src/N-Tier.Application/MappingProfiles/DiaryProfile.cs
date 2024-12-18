@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using N_Tier.Application.Models.Diary;
+using N_Tier.Core.Entities;
 
-namespace N_Tier.Application.MappingProfiles
+namespace N_Tier.Application.MappingProfiles;
+
+public class DiaryProfile:Profile
 {
-    internal class DiaryProfile
+    public DiaryProfile()
     {
+        CreateMap<CreateDiaryModel, Diary>();
+        CreateMap<UpdateDiaryModel, Diary>();
+        CreateMap<Diary,DiaryResponseModel>();
     }
 }

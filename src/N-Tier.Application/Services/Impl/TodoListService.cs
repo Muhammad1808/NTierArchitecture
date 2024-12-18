@@ -37,8 +37,8 @@ public class TodoListService : ITodoListService
     public async Task<List<TodoList>> GetAllWithIQueryableAsync()
     {
         var query = _todoListRepository.GetAll();
-        foreach (var todoList in query) 
-        { 
+        foreach (var todoList in query)
+        {
         }
         int count = query.Count();
         query = query.Take(1);

@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using N_Tier.Application.Models.Subject;
+using N_Tier.Core.Entities;
 
-namespace N_Tier.Application.MappingProfiles
+namespace N_Tier.Application.MappingProfiles;
+
+public class SubjectProfile:Profile
 {
-    internal class SubjectProfile
+    public SubjectProfile()
     {
+        CreateMap<CreateSubjectModel, Subject>();
+        CreateMap<UpdateSubjectModel, Subject>();
+        CreateMap<Subject,SubjectResponseModel>();
     }
 }

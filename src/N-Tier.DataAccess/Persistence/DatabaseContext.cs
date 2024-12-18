@@ -44,6 +44,26 @@ public class DatabaseContext : IdentityDbContext<ApplicationUser>
 
     public DbSet<Subject> Subjects { get; set; }
 
+    public DbSet<AboutSchool> Schools { get; set; }
+
+    public DbSet<Achievement> Achievements { get; set; }
+
+    public DbSet<AdminStaff> AdminStaffs { get; set; }
+
+    public DbSet<Attendance> Attendances { get; set; }
+
+    public DbSet<Course> Courses { get; set; }
+
+    public DbSet<Department> Departments { get; set; }
+
+    public DbSet<Dormitory> Dormitories { get; set; }
+
+    public DbSet<Parent> Parents { get; set; }
+
+    public DbSet<Schudele> Schudeles { get; set; }
+
+    public DbSet<Transport> Transports { get; set; }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());

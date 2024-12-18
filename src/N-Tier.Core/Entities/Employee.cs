@@ -5,7 +5,6 @@ namespace N_Tier.Core.Entities;
 
 public class Employee : BaseEntity, IAuditedEntity
 {
-    public Guid PersonId { get; set; }
     public virtual Person Person { get; set; }
     public PositionEnum Position { get; set; }
     public decimal Salary { get; set; }

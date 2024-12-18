@@ -158,6 +158,691 @@ namespace N_Tier.DataAccess.Persistence.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("N_Tier.Core.Entities.AboutSchool", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Adress")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Schools");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Achievement", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("Achievements");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.AdminStaff", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("DepartmentId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("PersonId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("DepartmentId");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("AdminStaffs");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Attendance", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<bool>("IsPresent")
+                        .HasColumnType("boolean");
+
+                    b.Property<Guid>("LessonId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("LessonId");
+
+                    b.ToTable("Attendances");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Course", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("AboutSchoolId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Description")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AboutSchoolId");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.ToTable("Courses");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Department", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("AboutSchoolId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AboutSchoolId");
+
+                    b.ToTable("Departments");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Diary", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("integer");
+
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SubjectId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("Weekday")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StudentId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("Diarys");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Dormitory", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("AboutSchoolId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("AboutSchoolId");
+
+                    b.ToTable("Dormitories");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Employee", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("PersonId")
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Position")
+                        .HasColumnType("integer");
+
+                    b.Property<decimal>("Salary")
+                        .HasColumnType("numeric");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Employees");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Event", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<Guid>("StudentId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("StudentId");
+
+                    b.ToTable("Events");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Exam", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("GroupId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SubjectId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("RoomId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("Exams");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Group", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Groups");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Lesson", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<DateTime>("DateTime")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("GroupId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("RoomId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SubjectId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("RoomId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("Lessons");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Parent", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("PersonId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PersonId");
+
+                    b.ToTable("Parents");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Person", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Age")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("FullName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("PhoneNumber")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Persons");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Room", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<int>("RoomNumber")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Rooms");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Schudele", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("EmployeeId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("GroupId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("SubjectId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<int>("Weekday")
+                        .HasColumnType("integer");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("EmployeeId");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("SubjectId");
+
+                    b.ToTable("Schudeles");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Student", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("CourseId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<Guid>("GroupId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("ParentId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid>("PersonId")
+                        .HasColumnType("uuid");
+
+                    b.Property<Guid?>("TransportId")
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CourseId");
+
+                    b.HasIndex("GroupId");
+
+                    b.HasIndex("ParentId");
+
+                    b.HasIndex("PersonId");
+
+                    b.HasIndex("TransportId");
+
+                    b.ToTable("Students");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Subject", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Subjects");
+                });
+
             modelBuilder.Entity("N_Tier.Core.Entities.TodoItem", b =>
                 {
                     b.Property<Guid>("Id")
@@ -172,13 +857,13 @@ namespace N_Tier.DataAccess.Persistence.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<bool>("IsDone")
                         .HasColumnType("boolean");
 
-                    b.Property<Guid?>("ListId")
+                    b.Property<Guid>("ListId")
                         .HasColumnType("uuid");
 
                     b.Property<string>("Title")
@@ -208,7 +893,7 @@ namespace N_Tier.DataAccess.Persistence.Migrations
                     b.Property<string>("CreatedBy")
                         .HasColumnType("text");
 
-                    b.Property<DateTime>("CreatedOn")
+                    b.Property<DateTime?>("CreatedOn")
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("Title")
@@ -225,6 +910,36 @@ namespace N_Tier.DataAccess.Persistence.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("TodoLists");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Transport", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uuid");
+
+                    b.Property<int>("Capacity")
+                        .HasColumnType("integer");
+
+                    b.Property<string>("CreatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("CreatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.Property<string>("RouteName")
+                        .IsRequired()
+                        .HasColumnType("text");
+
+                    b.Property<string>("UpdatedBy")
+                        .HasColumnType("text");
+
+                    b.Property<DateTime?>("UpdatedOn")
+                        .HasColumnType("timestamp without time zone");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Transports");
                 });
 
             modelBuilder.Entity("N_Tier.DataAccess.Identity.ApplicationUser", b =>
@@ -342,19 +1057,327 @@ namespace N_Tier.DataAccess.Persistence.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("N_Tier.Core.Entities.Achievement", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Student", "Student")
+                        .WithMany("Achievements")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.AdminStaff", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Department", "Department")
+                        .WithMany()
+                        .HasForeignKey("DepartmentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Department");
+
+                    b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Attendance", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Lesson", "Lesson")
+                        .WithMany()
+                        .HasForeignKey("LessonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Lesson");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Course", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.AboutSchool", "AboutSchool")
+                        .WithMany()
+                        .HasForeignKey("AboutSchoolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AboutSchool");
+
+                    b.Navigation("Employee");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Department", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.AboutSchool", "AboutSchool")
+                        .WithMany()
+                        .HasForeignKey("AboutSchoolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AboutSchool");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Diary", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Student", "Student")
+                        .WithMany("Diarys")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Subject", "Subject")
+                        .WithMany("Diarys")
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Student");
+
+                    b.Navigation("Subject");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Dormitory", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.AboutSchool", "AboutSchool")
+                        .WithMany()
+                        .HasForeignKey("AboutSchoolId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("AboutSchool");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Employee", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Event", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Student", "Student")
+                        .WithMany("Events")
+                        .HasForeignKey("StudentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Student");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Exam", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Group", "Group")
+                        .WithMany("Exams")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Room", "Room")
+                        .WithMany("Exams")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Subject", "Subject")
+                        .WithMany("Exams")
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Group");
+
+                    b.Navigation("Room");
+
+                    b.Navigation("Subject");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Lesson", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Employee", "Employee")
+                        .WithMany("Lessons")
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Group", "Group")
+                        .WithMany("Lessons")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Room", "Room")
+                        .WithMany("Lessons")
+                        .HasForeignKey("RoomId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Subject", "Subject")
+                        .WithMany("Lessons")
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Group");
+
+                    b.Navigation("Room");
+
+                    b.Navigation("Subject");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Parent", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Person");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Schudele", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Employee", "Employee")
+                        .WithMany()
+                        .HasForeignKey("EmployeeId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Group", "Group")
+                        .WithMany()
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Subject", "Subject")
+                        .WithMany()
+                        .HasForeignKey("SubjectId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Employee");
+
+                    b.Navigation("Group");
+
+                    b.Navigation("Subject");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Student", b =>
+                {
+                    b.HasOne("N_Tier.Core.Entities.Course", null)
+                        .WithMany("Students")
+                        .HasForeignKey("CourseId");
+
+                    b.HasOne("N_Tier.Core.Entities.Group", "Group")
+                        .WithMany("Students")
+                        .HasForeignKey("GroupId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Parent", "Parent")
+                        .WithMany()
+                        .HasForeignKey("ParentId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Person", "Person")
+                        .WithMany()
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("N_Tier.Core.Entities.Transport", null)
+                        .WithMany("Students")
+                        .HasForeignKey("TransportId");
+
+                    b.Navigation("Group");
+
+                    b.Navigation("Parent");
+
+                    b.Navigation("Person");
+                });
+
             modelBuilder.Entity("N_Tier.Core.Entities.TodoItem", b =>
                 {
                     b.HasOne("N_Tier.Core.Entities.TodoList", "List")
                         .WithMany("Items")
                         .HasForeignKey("ListId")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("List");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Course", b =>
+                {
+                    b.Navigation("Students");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Employee", b =>
+                {
+                    b.Navigation("Lessons");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Group", b =>
+                {
+                    b.Navigation("Exams");
+
+                    b.Navigation("Lessons");
+
+                    b.Navigation("Students");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Room", b =>
+                {
+                    b.Navigation("Exams");
+
+                    b.Navigation("Lessons");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Student", b =>
+                {
+                    b.Navigation("Achievements");
+
+                    b.Navigation("Diarys");
+
+                    b.Navigation("Events");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Subject", b =>
+                {
+                    b.Navigation("Diarys");
+
+                    b.Navigation("Exams");
+
+                    b.Navigation("Lessons");
                 });
 
             modelBuilder.Entity("N_Tier.Core.Entities.TodoList", b =>
                 {
                     b.Navigation("Items");
+                });
+
+            modelBuilder.Entity("N_Tier.Core.Entities.Transport", b =>
+                {
+                    b.Navigation("Students");
                 });
 #pragma warning restore 612, 618
         }

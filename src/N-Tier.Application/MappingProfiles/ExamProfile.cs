@@ -1,12 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using AutoMapper;
+using N_Tier.Application.Models.Exam;
+using N_Tier.Core.Entities;
 
-namespace N_Tier.Application.MappingProfiles
+namespace N_Tier.Application.MappingProfiles;
+
+public class ExamProfile : Profile
 {
-    internal class ExamProfile
+    public ExamProfile()
     {
+        CreateMap<CreateExamModel, Exam>();
+        CreateMap<UpdateExamModel, Exam>();
+        CreateMap<Exam, ExamResponseModel>();
     }
 }
