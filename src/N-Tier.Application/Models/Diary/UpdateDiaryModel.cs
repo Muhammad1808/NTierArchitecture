@@ -11,4 +11,4 @@ public class UpdateDiaryModel
     public int Rating { get; set; }
 }
 
-public class UpdateDiaryResponseModel:BaseResponseModel
+public class UpdateDiaryResponseModel:BaseResponseModel { }
